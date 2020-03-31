@@ -9,10 +9,10 @@ from vk_api.longpoll import VkLongPoll, VkEventType
 
 token = "e615070ecbd0a9642205948dbe49728785555494f701852aabe742313bc7eee4dbdd7447ffeca14003479" #token
 
-# Авторизуемся как сообщество
+
 vk = vk_api.VkApi(token=token)
 
-# Работа с сообщениями
+
 botlongpoll = VkLongPoll(vk)
 
 search_link = "https://www.microsoft.com/ru-ru/search?q="
