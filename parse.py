@@ -1,19 +1,6 @@
-import vk_api
-import random
 import requests
-import Gamebot.Steps as steps
-import Gamebot.Market as Market
+
 from bs4 import BeautifulSoup
-from vk_api.keyboard import VkKeyboard, VkKeyboardColor
-from vk_api.longpoll import VkLongPoll, VkEventType
-
-token = "e615070ecbd0a9642205948dbe49728785555494f701852aabe742313bc7eee4dbdd7447ffeca14003479" #token
-
-
-vk = vk_api.VkApi(token=token)
-
-
-botlongpoll = VkLongPoll(vk)
 
 search_link = "https://www.microsoft.com/ru-ru/search?q="
 
