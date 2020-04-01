@@ -19,6 +19,19 @@ def get_all_links(html):
         links.append(link)
     return links
 
+def get_page_data(html):
+    soup = BeautifulSoup(html, 'lxml')
+    try:
+        name = soup.find('h1', id='DynamicHeading_productTitle').text.strip()
+    except:
+        name = ''
+    try:
+        price = soup.find('div', id='ProductPrice_productPrice_PriceContainer').text.strip()
+    except:
+        price = ''
+    data = {'name': name, 'price': price}
+    return data
+
 
 def main():
 
