@@ -85,12 +85,10 @@ def findElementBF(reqw, el, thingOfFind):
 
     #print(respw.text + ("/n" * 3))  # output the html of the page
     #divs = soup.find_all('div', class_='m-channel-placement-item')[0:maximumGames].text
-     links = []
      for div in divs:
         a = div.find('a').get('href')
         link = 'https://microsoft.com' + a
-        links.append(link)
-     return links
+     return link
 
 def findElementAF(reqw, el, thingOfFind):
     header = {
