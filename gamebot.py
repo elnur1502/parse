@@ -78,14 +78,14 @@ def findElementBF(reqw, el, thingOfFind):
 
     # Test
     # reqw = "Metro Exodus - Sam's story"
-    source_url = "https://www.microsoft.com/ru-ru/search/shop/games?q=" + str(reqw).replace(" ", "_").replace("'", "%27")
-
-    respw = requests.get(source_url, timeout=10, headers=header)
-    soup = BeautifulSoup(respw.text, 'html.parser')
+    
+    respw1 = requests.get(soup, timeout=10, headers=header)
+    soup1 = BeautifulSoup(soup.text, 'lxml')
 
     #print(respw.text + ("/n" * 3))  # output the html of the page
     #divs = soup.find_all('div', class_='m-channel-placement-item')[0:maximumGames].text
-     for div in divs:
+    divs = soup1.find_all('div', class_='m-channel-placement-item')[0:maximumGames].text
+    for div in divs:
         a = div.find('a').get('href')
         link = 'https://microsoft.com' + a
      return link
@@ -108,13 +108,14 @@ def findElementAF(reqw, el, thingOfFind):
     # link = "microsoft.com/ru-ru/p/grand-theft-auto-v/bpj686w6s0nh"
     link = "https://www.microsoft.com" + str(a).replace(" ", "_").replace("'", "%27")
 
-    respw = requests.get(link, timeout=10, headers=header)
-    soup = BeautifulSoup(respw.text, 'html.parser')
+    respw2 = requests.get(link, timeout=10, headers=header)
+    soup2 = BeautifulSoup(respw.text, 'html.parser')
 
     #print(respw.text + ("/n" * 3))  # output the html of the page
     #print(soup.find_all("div", id='ProductPrice_productPrice_PriceContainer').text)
+    prices = soup2.find_all("div", id='ProductPrice_productPrice_PriceContainer')[0:maximumGames].text
 
-    return soup.find_all(el, class_=thingOfFind)
+    return soup2.find_all(el, class_=thingOfFind)
 
 def findElementAU(reqw, el, thingOfFind):
     header = {
