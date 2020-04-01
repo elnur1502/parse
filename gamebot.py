@@ -88,7 +88,7 @@ def findElementBF(reqw, el, thingOfFind):
     for div in divs:
         a = div.find('a').get('href')
         link = 'https://microsoft.com' + a
-     return link
+     return divs
 
 def findElementAF(reqw, el, thingOfFind):
     header = {
